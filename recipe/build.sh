@@ -17,6 +17,7 @@ cargo install --locked --root "$PREFIX" --path helix-term
 "$STRIP" "$PREFIX"/bin/hx
 
 # create custom launcher
+mkdir -p "$HELIX_LIBEXEC"
 mv "$PREFIX"/bin/hx "$HELIX_LIBEXEC"/hx
 echo -e '#!/bin/bash\nHELIX_RUNTIME="'"$HELIX_RUNTIME"'" exec "'"$HELIX_LIBEXEC"'"/hx "$@"' > "$PREFIX"/bin/hx
 chmod +x "$PREFIX"/bin/hx
