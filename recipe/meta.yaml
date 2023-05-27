@@ -16,7 +16,7 @@ build:
 requirements:
   build:
     - {{ compiler('rust') }}
-    - {{ compiler('c++') }}
+    - {{ compiler('cxx') }}
     - cargo-bundle-licenses
 
 test:
