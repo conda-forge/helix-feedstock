@@ -1,4 +1,4 @@
-{% set version = "23.05" %}
+{% set version = "23.10" %}
 {% set name = "helix" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/helix-editor/helix/releases/download/{{ version }}/{{ name }}-{{ version }}-source.tar.xz
-  sha256: c1ca69facde99d708175c686ce5bf3585e119e372c83e1c3dc1d562c7a8e3d87
+  sha256: 4e7bcac200b1a15bc9f196bdfd161e4e448dc670359349ae14c18ccc512153e8
 
 build:
   number: 0
