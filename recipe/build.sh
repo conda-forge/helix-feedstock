@@ -2,6 +2,8 @@
 
 set -o xtrace -o nounset -o pipefail -o errexit
 
+# https://github.com/jaredramirez/tree-sitter-rescript/pull/2
+sed -i'' -e s/65609807c628477f3b94052e7ef895885ac51c3c/467dcf99f68c47823d7b378779a6b282d7ef9782/g languages.toml
 
 cargo-bundle-licenses \
     --format yaml \
