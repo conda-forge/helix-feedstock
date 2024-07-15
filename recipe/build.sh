@@ -13,7 +13,7 @@ HELIX_LIBEXEC="$PREFIX"/libexec/helix
 export HELIX_RUNTIME="$HELIX_LIBEXEC"/runtime
 
 # build statically linked binary with Rust
-cargo install --locked --root "$PREFIX" --path helix-term
+cargo install --locked --no-track --root "$PREFIX" --path helix-term
 
 # strip debug symbols
 "$STRIP" "$PREFIX"/bin/hx
