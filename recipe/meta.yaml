@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/helix-editor/helix/releases/download/{{ version }}/{{ name }}-{{ version }}-source.tar.xz
   sha256: 922fba301e1a3d9b933a445ab2d306cffcd689d678ecd06f00870cfc874cffb8
+  patches:
+    - headerpad.patch
 
 build:
   number: 0
