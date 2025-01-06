@@ -10,19 +10,17 @@ cargo-bundle-licenses \
     --output THIRDPARTY.yml
 
 HELIX_LIBEXEC="$PREFIX"/libexec/helix
-export HELIX_RUNTIME="$HELIX_LIBEXEC"/runtime
 
 # build statically linked binary with Rust
-cargo install --locked --no-track --root "$PREFIX" --path helix-term
+cargo install --profile opt --locked --no-track --root "$HELIX_LIBEXEC" --path helix-term
 
-# strip debug symbols
-"$STRIP" "$PREFIX"/bin/hx
+# move executable to $HELIX_LIBEXEC
+mv "$HELIX_LIBEXEC"/bin/hx "$HELIX_LIBEXEC"
+rmdir "$HELIX_LIBEXEC"/bin
 
-# create custom launcher
-mkdir -p "$HELIX_LIBEXEC"
-mv "$PREFIX"/bin/hx "$HELIX_LIBEXEC"/hx
-echo -e '#!/bin/bash\nHELIX_RUNTIME="'"$HELIX_RUNTIME"'" exec "'"$HELIX_LIBEXEC"'"/hx "$@"' > "$PREFIX"/bin/hx
-chmod +x "$PREFIX"/bin/hx
+# link the executable to $PREFIX/bin
+mkdir -p "$PREFIX"/bin
+ln -s "$HELIX_LIBEXEC"/hx "$PREFIX"/bin/hx
 
 # remove extra build files
 rm -rf runtime/grammars/sources
