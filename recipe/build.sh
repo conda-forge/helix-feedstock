@@ -12,7 +12,7 @@ cargo-bundle-licenses \
 HELIX_LIBEXEC="$PREFIX"/libexec/helix
 
 # build statically linked binary with Rust
-cargo install --profile opt --locked --no-track --root "$HELIX_LIBEXEC" --path helix-term
+cargo install --profile opt --locked --no-track --root "$HELIX_LIBEXEC" --path helix-term --config 'rustflags=["-C", "link-arg=-headerpad_max_install_names"]'
 
 # move executable to $HELIX_LIBEXEC
 mv "$HELIX_LIBEXEC"/bin/hx "$HELIX_LIBEXEC"
