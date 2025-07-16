@@ -1,8 +1,8 @@
 diff --git a/helix-loader/src/grammar.rs b/helix-loader/src/grammar.rs
-index 99e91154..2a88d3a0 100644
+index 362d3ba0..19f171d2 100644
 --- a/helix-loader/src/grammar.rs
 +++ b/helix-loader/src/grammar.rs
-@@ -549,6 +549,8 @@ fn build_tree_sitter_library(
+@@ -545,6 +545,8 @@ fn build_tree_sitter_library(
          )) {
              command.arg("-Wl,-z,relro,-z,now");
          }
