@@ -1,18 +1,8 @@
 diff --git a/helix-loader/src/grammar.rs b/helix-loader/src/grammar.rs
-index 362d3ba0..f147d11e 100644
+index 362d3ba0..19f171d2 100644
 --- a/helix-loader/src/grammar.rs
 +++ b/helix-loader/src/grammar.rs
-@@ -514,6 +514,9 @@ fn build_tree_sitter_library(
-                 #[cfg(not(windows))]
-                 cpp_command.arg("-fPIC");
- 
-+                #[cfg(not(windows))]
-+                cpp_command.arg("-DHAVE_ENDIAN_H");
-+
-                 cpp_command
-                     .arg("-fno-exceptions")
-                     .arg("-I")
-@@ -545,6 +548,8 @@ fn build_tree_sitter_library(
+@@ -545,6 +545,8 @@ fn build_tree_sitter_library(
          )) {
              command.arg("-Wl,-z,relro,-z,now");
          }
