@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 25.07
+  version: "25.07.1"
   name: helix
 
 package:
@@ -10,12 +10,12 @@ package:
 
 source:
   url: https://github.com/helix-editor/helix/releases/download/${{ version }}/${{ name }}-${{ version }}-source.tar.xz
-  sha256: 22f037e8c4bbef67b7aa6db3448063f87004159fde6a9ce684082963bfeba4e5
+  sha256: 2d0cf264ac77f8c25386a636e2b3a09a23dec555568cc9a5b2927f84322f544e
   patches:
     - headerpad.patch
 
 build:
-  number: 1
+  number: 0
   skip: win
 
 requirements:
