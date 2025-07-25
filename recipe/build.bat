@@ -16,6 +16,11 @@ set "HELIX_DEFAULT_RUNTIME=%LIBRARY_PREFIX%/libexec/helix/runtime"
 cargo install --profile opt --locked --no-track --root "%HELIX_LIBEXEC%" --path helix-term
 if errorlevel 1 exit 1
 
+:: Move binary
+if not exist %LIBRARY_BIN% mkdir %LIBRARY_BIN%
+rename "%HELIX_LIBEXEC%/bin/hx" "%LIBRARY_BIN%/hx"
+rmdir /s /q "%HELIX_LIBEXEC%/bin%" 2>nul
+
 :: remove extra build files
 rmdir /s /q runtime\grammars\sources
 del /q runtime\grammars\*.dSYM 2>nul
