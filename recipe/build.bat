@@ -14,6 +14,7 @@ set "HELIX_DEFAULT_RUNTIME=%LIBRARY_PREFIX%/libexec/helix/runtime"
 
 :: Build package
 cargo install --profile opt --locked --no-track --root "%HELIX_LIBEXEC%" --path helix-term
+if errorlevel 1 exit 1
 
 :: remove extra build files
 rmdir /s /q runtime\grammars\sources
@@ -22,3 +23,4 @@ rmdir /s /q runtime\grammars\*.dSYM 2>nul
 
 :: Copy runtime files
 robocopy "runtime" "%HELIX_DEFAULT_RUNTIME%" /S
+if %ERRORLEVEL% GEQ 8 exit 1
