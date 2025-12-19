@@ -31,3 +31,8 @@ rm -rf runtime/grammars/*.dSYM
 
 # copy runtime files
 cp -r runtime "$HELIX_LIBEXEC"
+
+# Tell `pixi global` to not set CONDA_PREFIX during activation
+# https://pixi.sh/dev/global_tools/introduction/#opt-out-of-conda_prefix
+mkdir -p "${PREFIX}/etc/pixi/hx"
+touch "${PREFIX}/etc/pixi/hx/global-ignore-conda-prefix"
